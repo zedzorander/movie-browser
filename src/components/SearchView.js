@@ -13,6 +13,7 @@ const MovieCard = ({ movie }) => {
         posterUrl = "https://as2.ftcdn.net/v2/jpg/00/90/40/47/1000_F_90404776_o3iTJ12Mb88zrfKcaxoAHPmr4D6C0Fpf.jpg"
     }
     const detailUrl = `/movies/${movie.id}`
+
     return (
         <div className="col-lg-3 col-md-3 col-2 my-4">
             <div className="card">
@@ -27,11 +28,17 @@ const MovieCard = ({ movie }) => {
 }
 
 const SearchView = ({ keyword, searchResults }) => {
-    const title = `You are searching for ${keyword}`
+    var title
     
     const resultsHtml = searchResults.map((obj, i) => {
         return <MovieCard movie={obj} key={i} />
     })
+
+    if(searchResults.length === 0) {
+        title = `There are no results for ${keyword}`
+    } else {
+        title = `You are searching for ${keyword}`
+    }
     
     return (
         <>
