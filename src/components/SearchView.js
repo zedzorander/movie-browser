@@ -6,7 +6,12 @@ import { Link } from "react-router-dom";
 //example link for movie searches: https://api.themoviedb.org/3/search/company?api_key=3f4a4438067d9317384e1d747fe6b26e&query=STAR%20WARS&page=1
 
 const MovieCard = ({ movie }) => {
-    const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+    var posterUrl
+    if(movie.poster_path) {
+        posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+    } else {
+        posterUrl = "https://as2.ftcdn.net/v2/jpg/00/90/40/47/1000_F_90404776_o3iTJ12Mb88zrfKcaxoAHPmr4D6C0Fpf.jpg"
+    }
     const detailUrl = `/movies/${movie.id}`
     return (
         <div className="col-lg-3 col-md-3 col-2 my-4">
