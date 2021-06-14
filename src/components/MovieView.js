@@ -23,8 +23,14 @@ const MovieView = () => {
             return <Hero text="Loading..." />
         }
         if(movieDetails) {
+            var posterPath
             // TODO: Deal with a possible missing image
-            const posterPath = `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`
+            if(movieDetails.poster_path){
+                posterPath = `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`
+            } else {
+                posterPath = "https://as2.ftcdn.net/v2/jpg/00/90/40/47/1000_F_90404776_o3iTJ12Mb88zrfKcaxoAHPmr4D6C0Fpf.jpg"
+            }
+            
             const backdropUrl = `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`
             
             return (
