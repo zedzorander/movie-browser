@@ -1,10 +1,6 @@
 import Hero from "./Hero";
 import { Link } from "react-router-dom";
 
-// TMDB API KEY = 3f4a4438067d9317384e1d747fe6b26e
-
-//example link for movie searches: https://api.themoviedb.org/3/search/company?api_key=3f4a4438067d9317384e1d747fe6b26e&query=STAR%20WARS&page=1
-
 const MovieCard = ({ movie }) => {
     var posterUrl
     if(movie.poster_path) {

@@ -19,7 +19,6 @@ function App() {
       fetch(`https://api.themoviedb.org/3/search/movie?api_key=3f4a4438067d9317384e1d747fe6b26e&language=en-US&query=${searchText}&page=1&include_adult=false`)
         .then(response => response.json())
         .then(data => {
-          console.log(data);
           setSearchResults(data.results)
         })
     }
@@ -37,7 +36,6 @@ function App() {
           <SearchView keyword={searchText} searchResults={searchResults} />
         </Route>
         <Route path="/movies/:id" component={MovieView} />
-        {/* create 404 page to redirect to */}
         <Route path="*" component={PageNotFound} />
       </Switch>
     </div>

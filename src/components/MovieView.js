@@ -24,7 +24,6 @@ const MovieView = () => {
         }
         if(movieDetails) {
             var posterPath
-            // TODO: Deal with a possible missing image
             if(movieDetails.poster_path){
                 posterPath = `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`
             } else {
